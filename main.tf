@@ -7,5 +7,4 @@ variable "bucket_name" {
 }
 resource "aws_s3_bucket" "vidro" {
   bucket = "var.bucket_name"
-  acl = "private"
 }
