@@ -6,5 +6,5 @@ variable "bucket_name" {
   description = "neme of bucket"
 }
 resource "aws_s3_bucket" "vidro" {
-  bucket = "var.bucket_name"
+  bucket = var.bucket_name
 }
