@@ -9,7 +9,7 @@ resource "aws_s3_bucket" "storage" {
   bucket = var.bucket_name
   source ="${file("bootstrap.sh")}"
   tags = {
-    local.target = learning
+    target = "learning"
   }
 }
 
@@ -23,7 +23,7 @@ resource "aws_security_group" "open-ssh" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags = {
-    local.target = learning
+    target = "learning"
   }
 }
 
@@ -43,7 +43,7 @@ resource "aws_instance" "vm-for-moodle" {
     volume_type = "General Purpose SSG (gp2)"
   }
   tags = {
-    local.target = learning
+   target = "learning"
   }
   security_groups = ["open-ssh"]
 }
