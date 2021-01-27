@@ -7,7 +7,7 @@ variable "bucket_name" {
 }
 resource "aws_s3_bucket" "storage" {
   bucket = var.bucket_name
-  source ="${file("bootstrap.sh")}"
+  source ="bootstrap.sh"
   tags = {
     target = "learning"
   }
@@ -40,7 +40,7 @@ resource "aws_instance" "vm-for-moodle" {
   root_block_device {
     delete_on_termination = true
     volume_size = 8
-    volume_type = "General Purpose SSG (gp2)"
+    volume_type = "gp2"
   }
   tags = {
    target = "learning"
