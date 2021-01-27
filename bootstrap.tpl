@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "---------------START------------"
-#mkdir /home/root/s3
-#aws s3 sync s3://my-storage-872122 /home/root/s3
+mkdir /home/root/s3
+aws s3 sync s3://var.bucket_name /home/root/s3
 sudo apt-get update
 sudo apt-get install \
     apt-transport-https \

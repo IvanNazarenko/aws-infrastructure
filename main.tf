@@ -38,14 +38,14 @@ resource "aws_key_pair" "wayne" {
 }
 
 data "tamplate_file" "user_data" {
-  template = "${file("${path.module}/bootstrap.tpl")}"
+  template = file("bootstrap.tpl")
 }
 
 resource "aws_instance" "vm-for-moodle" {
   ami = "ami-0885b1f6bd170450c"
   instance_type = "t2.micro"
   user_data = data.tamplate_file.user_data.template
-  key_name = "${aws_key_pair.wayne.key_name}"
+  key_name = aws_key_pair.wayne.key_name
   root_block_device {
     delete_on_termination = true
     volume_size = 8
