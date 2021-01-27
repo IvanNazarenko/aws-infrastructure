@@ -39,7 +39,7 @@ resource "aws_key_pair" "wayne" {
 }
 
 #data "tamplate_file" "user_data" {
-#  template = file("bootstrap.tpl")
+#  template = file("bootstrap.sh")
 #}
 
 resource "aws_instance" "vm-for-moodle" {
