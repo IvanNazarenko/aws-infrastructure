@@ -37,10 +37,14 @@ resource "aws_key_pair" "wayne" {
   public_key = "ssh-rsa"
 }
 
+data "tamplate_file" "user_data" {
+  template = file("bootstrap.sh")
+}
+
 resource "aws_instance" "vm-for-moodle" {
   ami = "ami-0885b1f6bd170450c"
   instance_type = "t2.micro"
-  user_data ="${file("bootstrap.sh")}"
+  user_data = data.tamplate_file.user_data.template
   key_name = "${aws_key_pair.wayne.key_name}"
   root_block_device {
     delete_on_termination = true
