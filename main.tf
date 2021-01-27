@@ -41,7 +41,7 @@ resource "aws_security_group" "open-ssh" {
 
 resource "aws_key_pair" "wayne" {
   key_name = "virginia"
-  public_key = file("/home/nazarenko/.ssh/id_rsa.pub")
+  public_key = file("id_rsa.pub")
 }
 
 resource "aws_instance" "vm-for-moodle" {
