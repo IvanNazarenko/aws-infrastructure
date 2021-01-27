@@ -1,9 +1,9 @@
 #!/bin/bash
 echo "---------------START------------"
-mkdir /home/root/s3
-aws s3 sync s3://var.bucket_name /home/root/s3
+mkdir /home/ubuntu/s3
+aws s3 sync s3://var.bucket_name /home/ubuntu/s3
 sudo apt-get update
-sudo apt-get install \
+sudo apt-get -y install \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -16,7 +16,7 @@ sudo add-apt-repository \
    $(lsb_release -cs) \
    stable"
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 sudo docker pull  inazarenko/myapp-nodejs:latest
 sudo docker run -id inazarenko/myapp-nodejs
 echo "UserData executed on $(date)" >> /var/www/html/log.txt
