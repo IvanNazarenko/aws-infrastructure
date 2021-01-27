@@ -7,10 +7,15 @@ variable "bucket_name" {
 }
 resource "aws_s3_bucket" "storage" {
   bucket = var.bucket_name
-  source ="bootstrap.sh"
   tags = {
     target = "learning"
   }
+}
+
+resource "aws_s3_bucket_object" "bootstrap" {
+  bucket = var.bucket_name
+  key = "bootsrap.sh"
+  source = "bootstrap.sh"
 }
 
 resource "aws_security_group" "open-ssh" {
