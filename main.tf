@@ -56,7 +56,7 @@ resource "aws_instance" "vm-for-moodle" {
   }
   tags = {
    target = "learning"
-    Name = moodle
+    Name = "moodle"
   }
   security_groups = ["open-ssh"]
 }
