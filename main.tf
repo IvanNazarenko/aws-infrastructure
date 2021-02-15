@@ -45,6 +45,7 @@ resource "aws_key_pair" "wayne" {
 }
 
 resource "aws_instance" "vm-for-moodle" {
+  count = 3
   ami = "ami-0885b1f6bd170450c"
   instance_type = "t2.micro"
   user_data = file("bootstrap.sh")

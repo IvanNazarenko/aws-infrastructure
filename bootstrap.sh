@@ -17,7 +17,8 @@ sudo add-apt-repository \
    stable"
 sudo apt-get update
 sudo apt-get -y install docker-ce docker-ce-cli containerd.io
-sudo docker pull  inazarenko/myapp-nodejs:latest
-sudo docker run -id inazarenko/myapp-nodejs
+sudo docker pull inazarenko/gold:latest
+sudo docker run -id inazarenko/gold:latest
+sudo docker run -id inazarenko/gold:latest
 echo "UserData executed on $(date)" >> /var/www/html/log.txt
 echo "--------------FINISH------------"
